@@ -43,11 +43,11 @@ jobs:
             sudo chmod +x /usr/local/bin/docker-compose
             docker-compose --version
           EOF
-
+          
       - name: 🛠️ Instalar PostgreSQL Client en EC2
         run: |
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-            sudo yum install -y postgresql
+            sudo dnf install -y postgresql15
             psql --version
           EOF
 
